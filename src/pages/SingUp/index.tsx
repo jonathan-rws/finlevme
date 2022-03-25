@@ -43,6 +43,7 @@ export function SingUp() {
           <FormControl>
             <FormLabel htmlFor="name">Nome</FormLabel>
             <Input
+              id="name"
               {...register('name')}
               size="lg"
               variant={"filled"}
@@ -58,6 +59,7 @@ export function SingUp() {
           <FormControl>
             <FormLabel htmlFor="email">E-mail</FormLabel>
             <Input
+             id="email"
               {...register('email')}
               size="lg"
               _hover={{
@@ -73,6 +75,7 @@ export function SingUp() {
           <FormControl>
             <FormLabel htmlFor="password">Senha</FormLabel>
             <Input
+            id="password"
               {...register('password')}
               size="lg"
               _hover={{
@@ -88,6 +91,7 @@ export function SingUp() {
           <FormControl>
             <FormLabel htmlFor="password-confirme">Confirmar Senha</FormLabel>
             <Input
+            id="passwordConfirm"
               {...register('passwordConfirm')}
               size="lg"
               _hover={{
@@ -100,7 +104,7 @@ export function SingUp() {
               type="password"
             />
           </FormControl>
-          <Button  size="lg" type="submit" colorScheme={"purple"}>Entrar</Button>
+          <Button  size="lg" type="submit" colorScheme={"purple"}>Cadastrar</Button>
           <Link href="/">Voltar</Link>
         </Stack>
       </Flex>

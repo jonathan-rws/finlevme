@@ -1,8 +1,12 @@
 import { Avatar, Box, Flex, Icon, IconButton, Text, useBreakpointValue } from "@chakra-ui/react";
 import { RiMenuLine } from "react-icons/ri";
+import { useAuth } from "../../contexts/AuthContex";
 import { useSidebarDrawer } from "../../contexts/SidebarDrawerContexts";
 
 export function Header() {
+
+const {user} = useAuth()
+
   const {onOpen} = useSidebarDrawer()
   const isWideVersion = useBreakpointValue({
     base: false,
@@ -48,8 +52,8 @@ export function Header() {
       >
         <Flex align="center">
           {isWideVersion && <Box mr="4" textAlign="right">
-            <Text>Jonathan Martins</Text>
-            <Text color="gray.300" fontSize="small">jonathan.rws@gmail.com</Text>
+            <Text>{user?.name}</Text>
+            <Text color="gray.300" fontSize="small">{user?.email}</Text>
           </Box>}
           <Flex
             borderRadius="50%"

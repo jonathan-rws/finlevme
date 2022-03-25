@@ -20,7 +20,7 @@ export function AppRoutes() {
       <Route path="/transactions" element={<PrivateRoutes><Transactions/></PrivateRoutes>}/>
       <Route path="/transactions/newtransaction" element={<PrivateRoutes><NewTransaction/></PrivateRoutes>}/>
       <Route path="/" element={<AuthRoutes><SingIn/></AuthRoutes>}/>
-      <Route path="/singup" element={<SingUp/>}/>
+      <Route path="/singup" element={<AuthRoutes><SingUp/></AuthRoutes>}/>
     </Routes>
     
   )

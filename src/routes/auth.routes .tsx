@@ -13,19 +13,16 @@ interface PrivateRoutesProps {
 export function AuthRoutes({ children }: PrivateRoutesProps) {
 
   const { user, isLoading } = useAuth()
-
+ 
   if (isLoading) {
-    console.log('1',isLoading)
-    console.log('1',user)
+
     return <h1>Loading . . . </h1>
+
   }
-  if (!!user) {
-    console.log('2',isLoading)
-    console.log('2',user)
+  if (!user) {
   
-    return <Navigate to={('/dashboard')} />
+    return children
   }
-  console.log('3',isLoading)
-  console.log('3',user)
-  return children
+  return (<Navigate to={('/dashboard')} />)
+  
 }

@@ -45,6 +45,7 @@ export function SingIn() {
           <FormControl>
             <FormLabel htmlFor="email">E-mail</FormLabel>
             <Input
+              id="email"
               {...register('email')}
               size="lg"
               _hover={{
@@ -59,6 +60,7 @@ export function SingIn() {
           <FormControl>
             <FormLabel htmlFor="password">Senha</FormLabel>
             <Input
+             id="passowrd"
               {...register('password')}
               size="lg"
               _hover={{
