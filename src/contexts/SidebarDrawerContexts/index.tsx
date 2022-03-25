@@ -1,9 +1,9 @@
 import { useDisclosure, UseDisclosureReturn } from "@chakra-ui/react";
-import { createContext, ReactNode, useContext, useEffect } from "react";
-import { useLocation, useRoutes } from "react-router-dom";
+import { createContext, useContext, useEffect } from "react";
+import { useLocation } from "react-router-dom";
 
 interface SidebarDrawerContextsProps {
-  children: ReactNode
+  children: JSX.Element
 }
 
 

@@ -1,7 +1,29 @@
 import { Button, Flex, FormControl, FormLabel, Input, Link, Stack, Text } from "@chakra-ui/react";
+import { useForm } from "react-hook-form";
+import { useAuth } from "../../contexts/AuthContex";
+
+
+interface FormData {
+  email: string
+  password: string
+}
 
 
 export function SingIn() {
+  const { register, handleSubmit,  formState: { errors, isSubmitting } } = useForm<FormData>()
+  const {singIn} = useAuth()
+
+
+
+  async function handleSingIn({email, password}: FormData) {
+   try {
+     await singIn(email, password)
+     
+   } catch (error) {
+     console.log(error)
+   }
+  }
+
   return (
     <Flex
       w={"100vw"}
@@ -10,6 +32,7 @@ export function SingIn() {
       justify={"center"}
     >
       <Flex
+        onSubmit={handleSubmit(handleSingIn)}
         flexDirection={"column"}
         as="form"
         width={"100%"}
@@ -22,6 +45,7 @@ export function SingIn() {
           <FormControl>
             <FormLabel htmlFor="email">E-mail</FormLabel>
             <Input
+              {...register('email')}
               size="lg"
               _hover={{
                 bg: "gray.900"
@@ -29,12 +53,13 @@ export function SingIn() {
               variant={"filled"}
               bg={"gray.900"}
               focusBorderColor="purple.500"
-              name=" email"
+              name="email"
               type="email" />
           </FormControl>
           <FormControl>
             <FormLabel htmlFor="password">Senha</FormLabel>
             <Input
+              {...register('password')}
               size="lg"
               _hover={{
                 bg: "gray.900"
@@ -42,11 +67,11 @@ export function SingIn() {
               variant={"filled"}
               bg={"gray.900"}
               focusBorderColor="purple.500"
-              name=" password"
+
               type="password" />
           </FormControl>
-          <Button size="lg" type="submit" colorScheme={"purple"}>Entrar</Button>
-         <Link href="/singup">Criar conta</Link>
+          <Button isLoading={isSubmitting} size="lg" type="submit" colorScheme={"purple"}>Entrar</Button>
+          <Link  href="/singup">Criar conta</Link>
         </Stack>
       </Flex>
     </Flex>
