@@ -1,12 +1,12 @@
 import { Avatar, Box, Flex, Icon, IconButton, Text, useBreakpointValue } from "@chakra-ui/react";
-import { RiMenuLine } from "react-icons/ri";
+import { RiMenuLine, RiLogoutBoxLine } from "react-icons/ri";
 import { useAuth } from "../../contexts/AuthContex";
 import { useSidebarDrawer } from "../../contexts/SidebarDrawerContexts";
 
 export function Header() {
 
 const {user} = useAuth()
-
+  const {singOut} = useAuth()
   const {onOpen} = useSidebarDrawer()
   const isWideVersion = useBreakpointValue({
     base: false,
@@ -50,11 +50,22 @@ const {user} = useAuth()
         align="center"
         ml="auto"
       >
+       
         <Flex align="center">
           {isWideVersion && <Box mr="4" textAlign="right">
             <Text>{user?.name}</Text>
             <Text color="gray.300" fontSize="small">{user?.email}</Text>
           </Box>}
+          <IconButton
+          
+          icon={<Icon as={RiLogoutBoxLine} />}
+          fontSize="24"
+          variant="unstyled"
+          onClick={singOut}
+          aria-label="Abre menu"
+          mr="2"
+          mt="2"
+        />
           <Flex
             borderRadius="50%"
             align='center'
@@ -63,6 +74,8 @@ const {user} = useAuth()
             width="54px"
             bgGradient='linear(to-l, purple.700, purple.400 )'
           >
+            
+
             <Avatar
               name="Jonathan Martins"
               w="50px"
