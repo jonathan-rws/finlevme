@@ -2,6 +2,7 @@ export interface User{
   name: string
   email: string
   uid: string
+  balance: number
   token: string
 }
 
@@ -15,4 +16,14 @@ export interface AuthContextProps {
   singIn: (email: string, password: string) => Promise<void>
   singUp: (name: string, email: string, password: string) => Promise<void>
   singOut: () => void
+}
+
+
+export interface Transaction{
+  id : string
+  title: string
+  createdAt: string
+  value: number
+  type: string
+  category: string
 }

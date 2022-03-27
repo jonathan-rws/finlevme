@@ -1,5 +1,5 @@
 import { createContext, useContext, useEffect, useState } from "react";
-import { AuthContextProps, User, AuthProviderProps } from './types'
+import { AuthContextProps, User, AuthProviderProps } from '../../types/types'
 import { AuthenticateUser, createUserAccount } from "./utils";
 
 

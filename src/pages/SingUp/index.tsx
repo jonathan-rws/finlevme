@@ -12,7 +12,7 @@ interface FormData {
 
 export function SingUp() {
   const { singUp } = useAuth()
-  const { register, handleSubmit, formState: { errors } } = useForm<FormData>()
+  const { register, handleSubmit, formState: { errors , isSubmitting} } = useForm<FormData>()
 
   async function handleSingUp({ name, email, password }: FormData) {
     try {
@@ -104,7 +104,7 @@ export function SingUp() {
               type="password"
             />
           </FormControl>
-          <Button  size="lg" type="submit" colorScheme={"purple"}>Cadastrar</Button>
+          <Button isLoading={isSubmitting}  size="lg" type="submit" colorScheme={"purple"}>Cadastrar</Button>
           <Link href="/">Voltar</Link>
         </Stack>
       </Flex>

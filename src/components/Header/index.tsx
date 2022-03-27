@@ -77,10 +77,10 @@ const {user} = useAuth()
             
 
             <Avatar
-              name="Jonathan Martins"
+              name={user?.name}
               w="50px"
               h="50px"
-              src="https://avatars.githubusercontent.com/u/84754727?v=4"
+              src=""
             />
           </Flex>
         </Flex>
